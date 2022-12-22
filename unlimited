@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Website</title>
+  </head>
+  <body>
+    <!-- Add a button that will redirect the user to another website -->
+    <a href="http://www.example.com" target="_blank">
+      <button>Visit Website</button>
+    </a>
+
+    <!-- Add a script that will log the data from the QR code to the Firebase database -->
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.14.6/firebase-database.js"></script>
+    <script>
+      // Initialize Firebase
+      var firebaseConfig = {
+        apiKey: "YOUR_API_KEY",
+        authDomain: "YOUR_AUTH_DOMAIN",
+        databaseURL: "YOUR_DATABASE_URL",
+        projectId: "YOUR_PROJECT_ID",
+        storageBucket: "",
+        messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+        appId: "YOUR_APP_ID"
+      };
+      firebase.initializeApp(firebaseConfig);
+
+      // Get a reference to the database
+      var database = firebase.database();
+
+      // Log the data from the QR code to the database
+      var qrCodeData = "YOUR_QR_CODE_DATA";
+      database.ref("qrCodes").push(qrCodeData);
+    </script>
+  </body>
+</html>
